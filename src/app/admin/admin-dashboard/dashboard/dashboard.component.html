@@ -1,0 +1,60 @@
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">Planet List</h3>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                      <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
+                      </div>
+                      <div *ngIf="!noRecordFound">
+                          <table class="table table-bordered">
+                              <thead >
+                                  <tr>
+                                      <th>Name</th>
+                                      <th>Rotation Period</th>
+                                      <th>Orbital Period</th>
+                                      <th>Dia Meter</th>
+                                      <th>Climate</th>
+                                      <th>Gravity</th>
+                                      <th>Terrian</th>
+                                      <th>Papulation</th>
+                                    </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let item of planetRequestList | filter:term">
+                                  <td>{{ item.name }}</td>
+                                  <td>{{ item.rotation_period }}</td>
+                                  <td>{{ item.orbital_period }}</td>
+                                  <td>{{ item.diameter }}</td>
+                                  <td>{{ item.climate }}</td>
+                                  <td>{{ item.gravity }}</td>
+                                  <td>{{ item.terrain }}</td>
+                                  <td>{{ item.population }}</td>
+                                </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                      <div *ngIf="noRecordFound">
+                        No Data Found
+                      </div>
+                  </div>
+                  <!-- /.card-body -->
+                  
+                </div>
+                <!-- /.card -->
+    
+              </div>
+              
+            </div>
+              <!-- /.row -->
+          
+        </div><!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
